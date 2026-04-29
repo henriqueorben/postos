@@ -1,57 +1,59 @@
 
 
-    import javax.swing.*;
+import javax.swing.*;
 
-    public class Veiculo {
+public class Veiculo {
 
-       private String placa;
+    private String placa;
+    private String modelo;
+    private double combustivel;
+    private double consumo;
 
-        public String getPlaca() {
-            return placa;
-        }
+    public Veiculo(String placa, String modelo, double consumo) {
+        this.placa = placa;
+        this.modelo = modelo;
+        this.combustivel = 0;
+        this.consumo = consumo;
+    }
 
-        public void setPlaca(String placa) {
-            this.placa = placa;
-        }
+    public String getPlaca() {
+        return placa;
+    }
 
-       private String modelo;
+    public String getModelo() {
+        return modelo;
+    }
 
-        public String getModelo() {
-            return modelo;
-        }
+    public double getCombustivel() {
+        return combustivel;
+    }
 
-        public void setModelo(String modelo) {
-            this.modelo = modelo;
-        }
+    public double getConsumo() {
+        return consumo;
+    }
 
-       private double combustivel;
+    public void abastecer(double litros) {
+        combustivel = combustivel + litros;
+        JOptionPane.showMessageDialog(null, "Abastecimento realizado com sucesso!");
+    }
 
-        public double getCombustivel() {
-            return combustivel;
-        }
+    public void viajar(double distancia) {
+        double necessario = distancia / consumo;
 
-
-
-       public void abastecer(double litros) {
-            combustivel = combustivel + litros;
-            JOptionPane.showMessageDialog(null, "Abastecimento realizado com sucesso!");
-        }
-
-       public void viajar(double distancia) {
-            double necessario = distancia / 10.0;
-
-            if (combustivel >= necessario) {
-                combustivel = combustivel - necessario;
-                JOptionPane.showMessageDialog(null, "Viagem realizada com sucesso!");
-            } else {
-                JOptionPane.showMessageDialog(null, "Combustível insuficiente para a viagem.");
-            }
-        }
-
-       public void exibirDados() {
-            JOptionPane.showMessageDialog(null,
-                    "Placa: " + placa +
-                            "\nModelo: " + modelo +
-                            "\nCombustível: " + combustivel + " litros");
+        if (combustivel >= necessario) {
+            combustivel = combustivel - necessario;
+            JOptionPane.showMessageDialog(null, "Viagem realizada com sucesso!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Combustível insuficiente para a viagem.");
         }
     }
+
+    public void exibirDados() {
+        JOptionPane.showMessageDialog(null,
+                "Placa: " + placa +
+                        "\nModelo: " + modelo +
+                        "\nCombustível: " + combustivel + " litros" +
+        "\nConsumo: " + consumo + "KM por litro");
+    }
+}
+
