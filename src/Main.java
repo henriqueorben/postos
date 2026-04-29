@@ -10,9 +10,9 @@ public class Main {
         for (int i = 0; i < veiculos.length; i++) {
             veiculos[i] = new Veiculo();
 
-            veiculos[i].placa = JOptionPane.showInputDialog("Digite a placa do veículo " + i + ":");
-            veiculos[i].modelo = JOptionPane.showInputDialog("Digite o modelo do veículo " + i + ":");
-            veiculos[i].combustivel = 0;
+            veiculos[i].setPlaca(JOptionPane.showInputDialog("Digite a placa do veículo " + i + ":"));
+            veiculos[i].setModelo(JOptionPane.showInputDialog("Digite o modelo do veículo " + i + ":"));
+
         }
 
         int opcao = -1;

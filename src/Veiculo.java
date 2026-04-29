@@ -4,16 +4,40 @@
 
     public class Veiculo {
 
-        String placa;
-        String modelo;
-        double combustivel;
+       private String placa;
 
-        void abastecer(double litros) {
+        public String getPlaca() {
+            return placa;
+        }
+
+        public void setPlaca(String placa) {
+            this.placa = placa;
+        }
+
+       private String modelo;
+
+        public String getModelo() {
+            return modelo;
+        }
+
+        public void setModelo(String modelo) {
+            this.modelo = modelo;
+        }
+
+       private double combustivel;
+
+        public double getCombustivel() {
+            return combustivel;
+        }
+
+
+
+       public void abastecer(double litros) {
             combustivel = combustivel + litros;
             JOptionPane.showMessageDialog(null, "Abastecimento realizado com sucesso!");
         }
 
-        void viajar(double distancia) {
+       public void viajar(double distancia) {
             double necessario = distancia / 10.0;
 
             if (combustivel >= necessario) {
@@ -24,7 +48,7 @@
             }
         }
 
-        void exibirDados() {
+       public void exibirDados() {
             JOptionPane.showMessageDialog(null,
                     "Placa: " + placa +
                             "\nModelo: " + modelo +
